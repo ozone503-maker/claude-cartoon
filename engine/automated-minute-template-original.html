@@ -1,0 +1,149 @@
+<meta charset="utf-8">
+<title>Kudoken Daily</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Saira+Condensed:wght@500;700;800&display=swap">
+<style>
+/* Layout: vertical 9:16 broadcast. Dinny at a desk over Hapuna water, tip text below, ticker at the base. Single deep-blue look on purpose. */
+:root{
+  --night:#030a18; --deep:#06214a; --cyan:#3fe0ff; --ice:#e8fbff; --gold:#ffcf4a; --pink:#ff6fa8; --line:#1b4f8a;
+  --title:"Saira Stencil One","Arial Black",Impact,sans-serif;
+  --ui:"Saira Condensed","Arial Narrow",system-ui,sans-serif;
+  color-scheme:dark;
+}
+html,body{background:var(--night);color:var(--ice)}
+body{font-family:var(--ui);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px 20px}
+.wrap{max-width:430px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.stage{position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;background:var(--night);container-type:inline-size;border-radius:6px}
+.bg{position:absolute;inset:0;background:url(data:image/jpeg;base64,BEACH) center 38%/cover;filter:saturate(1.25) brightness(.85);transform:scale(1.12);animation:drift 30s ease-in-out infinite alternate}
+@keyframes drift{to{transform:scale(1.2) translateX(-4%)}}
+.tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,10,24,.9) 0%,rgba(6,33,74,.15) 22%,rgba(6,33,74,0) 45%,rgba(3,10,24,.6) 60%,rgba(3,10,24,.96) 80%)}
+.scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(63,224,255,.04) 0 1px,transparent 1px 4px);pointer-events:none}
+.bug{position:absolute;top:3.5%;left:5%;right:5%;display:flex;align-items:center;gap:3cqw;transition:opacity .6s}
+.bug img{width:13cqw;height:13cqw;animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotateY(360deg)}}
+.bug .t{font-family:var(--title);font-size:8.6cqw;line-height:.9;color:var(--ice);text-shadow:0 0 14px rgba(63,224,255,.7)}
+.bug .s{font-size:3.4cqw;font-weight:700;letter-spacing:.12em;color:var(--cyan);text-transform:uppercase}
+.live{margin-left:auto;font-weight:800;font-size:3.4cqw;letter-spacing:.12em;background:#e0243a;color:#fff;padding:.5cqw 2cqw;border-radius:2px;animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.55}}
+.host{position:absolute;left:0;right:0;top:27cqw;height:72cqw;transition:opacity .6s}
+.host img{position:absolute;left:50%;top:0;width:98cqw;max-width:none;transform:translateX(-50%);opacity:0;transition:opacity .18s;filter:drop-shadow(0 10px 18px rgba(0,0,0,.45))}
+.host img.on{opacity:1}
+.desk{position:absolute;left:0;right:0;top:calc(27cqw + 60cqw);height:16cqw;background:linear-gradient(180deg,#0d3c7a 0%,#06214a 40%,#030a18 100%);border-top:2px solid var(--cyan);box-shadow:0 -6px 24px rgba(63,224,255,.25);transition:opacity .6s}
+.desk::after{content:"KUDOKEN";position:absolute;right:5%;top:3cqw;font-family:var(--title);font-size:5cqw;color:rgba(63,224,255,.35);letter-spacing:.1em}
+.lower{position:absolute;left:5%;top:calc(27cqw + 60cqw - 4.6cqw);display:flex;transition:opacity .6s}
+.lower b{background:var(--pink);color:#fff;font-weight:800;font-size:3.8cqw;letter-spacing:.1em;padding:.8cqw 2.4cqw;text-transform:uppercase}
+.lower span{background:rgba(3,10,24,.92);font-weight:700;font-size:3.8cqw;letter-spacing:.08em;padding:.8cqw 2.4cqw;text-transform:uppercase;color:var(--ice)}
+.head{position:absolute;left:6%;right:6%;top:calc(27cqw + 78cqw);bottom:11%;display:flex;flex-direction:column;justify-content:center;gap:2cqw;transition:opacity .5s}
+.kick{font-weight:800;font-size:4cqw;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;min-height:1.2em}
+.say{font-weight:800;font-size:8.4cqw;line-height:1.02;margin:0;text-wrap:balance;text-transform:uppercase;color:var(--ice);text-shadow:0 0 18px rgba(63,224,255,.5),0 3px 0 rgba(0,0,0,.5);opacity:0;transform:translateY(10px);transition:opacity .3s,transform .35s}
+.say.in{opacity:1;transform:none}
+.tick{position:absolute;left:0;right:0;bottom:3.5%;height:6.5cqw;background:rgba(3,10,24,.92);border-top:2px solid var(--cyan);display:flex;align-items:center;overflow:hidden}
+.tick .lab{flex:none;height:100%;display:flex;align-items:center;background:var(--cyan);color:var(--night);font-weight:800;font-size:3.4cqw;letter-spacing:.1em;padding:0 2.4cqw;z-index:1}
+.tick .run{white-space:nowrap;font-weight:700;font-size:3.6cqw;letter-spacing:.06em;color:var(--ice);animation:run 24s linear infinite;padding-left:4cqw}
+@keyframes run{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ov{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3cqw;text-align:center;opacity:0;pointer-events:none;transition:opacity .6s;padding:0 7%}
+.ov.on{opacity:1}
+.open{background:rgba(3,10,24,.55)}
+.open img{width:50cqw;height:50cqw;filter:drop-shadow(0 0 30px rgba(63,224,255,.7))}
+.open.on img{animation:flipin 1.8s cubic-bezier(.2,.9,.3,1)}
+@keyframes flipin{from{transform:rotateY(900deg) scale(.2)}to{transform:none}}
+.open h1,.end h1{font-family:var(--title);font-weight:400;font-size:14cqw;line-height:.9;margin:0;color:var(--ice);text-shadow:0 0 24px rgba(63,224,255,.9)}
+.open .ep{font-weight:800;font-size:5cqw;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.open .by,.end .by{font-weight:700;font-size:4cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
+.open .sp,.end .sp{font-weight:700;font-size:3.8cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--pink)}
+.sponsor{background:radial-gradient(circle at 50% 40%,#ff7cb6 0%,#e23e86 45%,#5a0f3a 100%)}
+.sponsor .tag{font-weight:800;font-size:3.6cqw;letter-spacing:.24em;text-transform:uppercase;color:#fff3f8}
+.sponsor h2{font-family:var(--title);font-weight:400;font-size:15cqw;line-height:.88;margin:0;color:#fff}
+.sponsor .big{font-weight:800;font-size:8.4cqw;line-height:1.02;text-transform:uppercase;color:#fff;text-wrap:balance;min-height:2.1em;opacity:0;transition:opacity .35s}
+.sponsor .big.in{opacity:1}
+.sponsor .fine{font-weight:700;font-size:3.8cqw;letter-spacing:.08em;color:#ffe3ef}
+.end{background:rgba(3,10,24,.85)}
+.end img{width:28cqw;height:28cqw;animation:spin 6s linear infinite}
+.stage:not(.ondesk) .host,.stage:not(.ondesk) .desk,.stage:not(.ondesk) .lower,.stage:not(.ondesk) .head,.stage:not(.ondesk) .bug{opacity:0}
+.controls{display:flex;gap:10px;justify-content:center}
+button{font-family:var(--ui);font-weight:800;font-size:16px;letter-spacing:.08em;text-transform:uppercase;background:var(--night);color:var(--ice);border:2px solid var(--line);border-radius:999px;padding:8px 22px;cursor:pointer}
+button:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.bg,.bug img,.end img,.tick .run,.live{animation:none}.open.on img{animation:none}}
+</style>
+
+<div class="wrap">
+  <div class="stage" id="stage" role="img" aria-label="Kudoken Daily: AI tips for small business with Dinny">
+    <div class="bg"></div><div class="tint"></div>
+    <div class="bug"><img alt="" src="data:image/png;base64,COIN"><div><div class="t">KUDOKEN DAILY</div><div class="s">AI tips for small business</div></div><span class="live">LIVE</span></div>
+    <div class="host" id="host">FRAMES</div>
+    <div class="desk"></div>
+    <div class="lower"><b>Dinny</b><span>AI tips for small business</span></div>
+    <div class="head"><div class="kick" id="kick"></div><p class="say" id="say"></p></div>
+    <div class="tick"><span class="lab">KUDOKEN</span><span class="run" id="run"></span></div>
+    <div class="scan"></div>
+    <div class="ov open" id="open"><img alt="" src="data:image/png;base64,COIN"><h1>KUDOKEN DAILY</h1><div class="ep">EPTITLE</div><div class="by">Brought to you by BroBots Space Factory</div><div class="sp">Sponsored by Fruity Puppy</div></div>
+    <div class="ov sponsor" id="sponsor"><div class="tag">This tip is brought to you by</div><h2>FRUITY PUPPY</h2><div class="big" id="spbig"></div><div class="fine">Fresh skincare · Big Island of Hawaiʻi</div></div>
+    <div class="ov end" id="end"><img alt="" src="data:image/png;base64,COIN"><h1>KUDOKEN DAILY</h1><div class="by">BroBots Space Factory · brobots.space</div><div class="sp">Sponsored by Fruity Puppy</div></div>
+  </div>
+  <audio id="vo" preload="auto"VOSRC></audio>
+  <div class="controls"><button id="play">Play</button><button id="restart">Restart</button></div>
+</div>
+
+<script>
+const T="KUDOKEN DAILY  ·  AI TIPS FOR SMALL BUSINESS WITH DINNY  ·  BROUGHT TO YOU BY BROBOTS SPACE FACTORY  ·  SPONSORED BY FRUITY PUPPY  ·  ";
+document.getElementById("run").textContent=T+T;
+/* One line per beat. "at" = seconds into the voice track (used only when a voice file is loaded). */
+const L=[
+ {e:"smirk",k:"Tip #1",t:"Dinny here. Still typing to your AI? Cute."},
+ {e:"unimpressed",k:"The problem",t:"Typing is slow. Good ideas die in your thumbs."},
+ {e:"whisper",k:"The move",t:"Tap the mic. Talk to it like your business partner."},
+ {e:"phone",k:"The move",t:"Ramble ten minutes. Customers, prices, what bugs you."},
+ {e:"point",k:"The ask",t:"Then say: turn this into a one-page handout."},
+ {e:"shocked",k:"The result",t:"Ten minutes of talking. One finished handout."},
+ {e:"thinking",k:"Bonus",t:"Same ramble? Ask for a week of social posts."},
+ {e:"money",k:"Why it works",t:"Your voice is the content. The AI is just the typist."},
+ {sp:1},
+ {e:"thumbsup",k:"Do it today",t:"One voice memo. Today."},
+ {e:"wink",k:"Dinny out",t:"Talk. Don't type."}
+];
+const SP=["Skin eats. Feed it well.","45% real fruit. Kept in the fridge.","We refused to embalm it."];
+const $=id=>document.getElementById(id);
+const stage=$("stage"),say=$("say"),kick=$("kick"),big=$("spbig"),vo=$("vo"),btn=$("play"),frames=[...document.querySelectorAll("#host img")];
+const voiced=!!vo.getAttribute("src");
+let i=0,playing=false,timers=[],raf=0,cur=-1;
+function scene(sc){stage.classList.toggle("ondesk",sc==="desk");["open","sponsor","end"].forEach(id=>$(id).classList.toggle("on",sc===id))}
+function later(fn,ms){timers.push(setTimeout(fn,ms))}
+function clear(){timers.forEach(clearTimeout);timers=[];cancelAnimationFrame(raf)}
+function line(b){
+  scene("desk");frames.forEach(f=>f.classList.toggle("on",f.dataset.e===b.e));
+  kick.textContent=b.k;say.classList.remove("in");
+  later(()=>{say.textContent=b.t;void say.offsetWidth;say.classList.add("in")},140);
+}
+function sponsor(done){
+  scene("sponsor");
+  SP.forEach((t,j)=>later(()=>{big.classList.remove("in");later(()=>{big.textContent=t;big.classList.add("in")},250)},j*2500));
+  later(done,SP.length*2500+300);
+}
+function finish(){scene("end");playing=false;btn.textContent="Play again"}
+function step(){
+  if(!playing)return;
+  if(i>=L.length){finish();return}
+  const b=L[i++];
+  if(b.sp){sponsor(step);return}
+  line(b);later(step,Math.max(2400,b.t.length*68));
+}
+function start(){
+  clear();vo.pause();i=0;cur=-1;playing=true;btn.textContent="Pause";scene("open");
+  later(()=>{ if(voiced){vo.currentTime=0;vo.play().catch(()=>{});raf=requestAnimationFrame(sync)} else step(); },3600);
+}
+const VL=L.filter(b=>!b.sp);
+function sync(){
+  let n=0;for(let k=0;k<VL.length;k++)if(vo.currentTime>=(VL[k].at||0))n=k;
+  if(n!==cur){cur=n;line(VL[n])}
+  if(!vo.ended)raf=requestAnimationFrame(sync);
+}
+vo.addEventListener("ended",()=>{cancelAnimationFrame(raf);sponsor(finish)});
+btn.addEventListener("click",()=>{
+  if(!playing&&(i===0||i>=L.length||stage.querySelector("#end.on"))&&!(voiced&&vo.currentTime>0&&!vo.ended)){start();return}
+  if(playing){playing=false;clear();if(voiced)vo.pause();btn.textContent="Play";return}
+  playing=true;btn.textContent="Pause";
+  if(voiced){vo.play();raf=requestAnimationFrame(sync)}else step();
+});
+$("restart").addEventListener("click",start);
+scene("open");
+</script>

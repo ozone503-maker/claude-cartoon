@@ -1,0 +1,163 @@
+<meta charset="utf-8">
+<title>Skin Eats with Ipo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito:wght@700;800;900&display=swap">
+<style>
+/* Layout: vertical 9:16. Blurred FlashTown jungle behind, a "lab window" up top for photos and science animations, Ipo bottom right, captions bottom left. Single pink-jungle look on purpose. */
+:root{
+  --jungle:#0f2a1c; --leaf:#2f6a3a; --pink:#ff3f8e; --blush:#ffd3e6; --cream:#fff7f1; --gold:#ffc23d; --ink:#2a0f1c;
+  --display:"Fredoka","Arial Rounded MT Bold",system-ui,sans-serif;
+  --ui:"Nunito",system-ui,sans-serif;
+  color-scheme:dark;
+}
+html,body{background:var(--jungle);color:var(--cream)}
+body{font-family:var(--ui);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px 20px}
+.wrap{max-width:430px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.stage{position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;background:var(--jungle);container-type:inline-size;border-radius:6px}
+.bg{position:absolute;inset:-4%;background:url(data:image/jpeg;base64,BG) center/cover;filter:saturate(1.15) brightness(.75);animation:drift 26s ease-in-out infinite alternate}
+@keyframes drift{to{transform:scale(1.06) translate(-2%,1%)}}
+.tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,15,28,.55) 0%,rgba(42,15,28,.05) 18%,rgba(255,63,142,.08) 55%,rgba(42,15,28,.85) 78%,rgba(42,15,28,.96) 100%)}
+.bug{position:absolute;top:3.5%;left:5%;right:5%;display:flex;align-items:center;gap:3cqw;z-index:3}
+.bug img{width:15cqw;height:15cqw;filter:drop-shadow(0 3px 8px rgba(0,0,0,.4))}
+.bug .t{font-family:var(--display);font-weight:700;font-size:8cqw;line-height:.9;color:var(--cream)}
+.bug .s{font-weight:900;font-size:3.4cqw;letter-spacing:.12em;color:var(--blush);text-transform:uppercase}
+.epn{margin-left:auto;font-weight:900;font-size:3.2cqw;letter-spacing:.1em;background:var(--pink);color:#fff;padding:.7cqw 2.2cqw;border-radius:99px}
+/* lab window */
+.lab{position:absolute;left:5%;right:5%;top:24cqw;aspect-ratio:1/0.82;border-radius:5cqw;overflow:hidden;background:#000;border:1.2cqw solid var(--cream);box-shadow:0 10px 30px rgba(0,0,0,.45);z-index:1}
+.lab img,.lab canvas{position:absolute;inset:0;width:100%;height:100%;max-width:100%;object-fit:cover;opacity:0;transition:opacity .6s}
+.lab .on{opacity:1}
+.lab img.on{animation:kb 8s ease-out forwards}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.1) translate(-1%,-1%)}}
+.tag{position:absolute;left:3cqw;bottom:3cqw;font-weight:900;font-size:3.4cqw;letter-spacing:.08em;text-transform:uppercase;background:var(--cream);color:var(--ink);padding:.8cqw 2.4cqw;border-radius:99px;opacity:0;transition:opacity .4s;z-index:2}
+.tag.on{opacity:1}
+/* Ipo */
+.host{position:absolute;right:-4%;bottom:7.5%;width:60cqw;aspect-ratio:1;z-index:2}
+.host img{position:absolute;inset:0;width:100%;height:100%;max-width:100%;opacity:0;transition:opacity .15s;filter:drop-shadow(0 8px 16px rgba(0,0,0,.45))}
+.host img.on{opacity:1}
+.name{position:absolute;right:6%;bottom:8.5%;z-index:3;font-family:var(--display);font-weight:700;font-size:4.4cqw;background:var(--pink);color:#fff;padding:.4cqw 3cqw;border-radius:99px;transform:rotate(-3deg)}
+/* captions */
+.cap{position:absolute;left:5%;width:52%;top:calc(24cqw + 90cqw*.82 + 6cqw);bottom:12%;display:flex;flex-direction:column;justify-content:center;gap:1.6cqw;z-index:3}
+.kick{font-weight:900;font-size:3.6cqw;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;min-height:1.2em}
+.say{font-family:var(--display);font-weight:700;font-size:6.4cqw;line-height:1.08;margin:0;color:var(--cream);text-wrap:balance;text-shadow:0 2px 0 rgba(0,0,0,.35)}
+.say .w{opacity:.35;transition:opacity .12s,color .12s}
+.say .w.lit{opacity:1}
+.say .w.now{color:var(--blush)}
+/* overlays */
+.ov{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:3cqw;padding:0 8%;opacity:0;pointer-events:none;transition:opacity .5s;background:radial-gradient(circle at 50% 40%,#ff6fa8 0%,#e0257a 45%,#5a0b32 100%)}
+.ov.on{opacity:1}
+.ov img.badge{width:56cqw;height:56cqw;filter:drop-shadow(0 10px 24px rgba(0,0,0,.4))}
+.ov.on img.badge{animation:pop 1.1s cubic-bezier(.2,1.6,.4,1)}
+@keyframes pop{from{transform:scale(.3) rotate(-40deg)}to{transform:none}}
+.ov h1{font-family:var(--display);font-weight:700;font-size:15cqw;line-height:.85;margin:0;color:#fff;text-shadow:0 4px 0 rgba(90,11,50,.6)}
+.ov .with{font-weight:900;font-size:4.6cqw;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.ov .ep{font-family:var(--display);font-weight:600;font-size:5.4cqw;color:#fff}
+.ov .url{font-weight:900;font-size:6cqw;color:#fff;background:var(--ink);padding:1cqw 4cqw;border-radius:99px}
+.ov .fine{font-weight:800;font-size:3.6cqw;color:var(--blush);letter-spacing:.06em}
+.stage:not(.live) .cap,.stage:not(.live) .host,.stage:not(.live) .name{opacity:0}
+.controls{display:flex;gap:10px;justify-content:center}
+button{font-family:var(--ui);font-weight:900;font-size:16px;letter-spacing:.06em;text-transform:uppercase;background:var(--pink);color:#fff;border:0;border-radius:999px;padding:9px 22px;cursor:pointer}
+button.alt{background:transparent;border:2px solid var(--blush);color:var(--blush)}
+button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.bg,.lab img.on{animation:none}}
+</style>
+
+<div class="wrap">
+  <div class="stage" id="stage" role="img" aria-label="Skin Eats with Ipo: Fruity Puppy science series">
+    <div class="bg"></div><div class="tint"></div>
+    <div class="bug"><img alt="" src="data:image/webp;base64,LOGO"><div><div class="t">Skin Eats</div><div class="s">with Ipo</div></div><span class="epn" id="epn">Part 1 of 12</span></div>
+    <div class="lab" id="lab">PHOTOS<canvas id="cell" data-c="cell" width="720" height="590"></canvas><div class="tag" id="tag"></div></div>
+    <div class="cap"><div class="kick" id="kick"></div><p class="say" id="say"></p></div>
+    <div class="host" id="host">FRAMES</div>
+    <div class="name">Ipo</div>
+    <div class="ov" id="open"><img class="badge" alt="" src="data:image/webp;base64,LOGO"><h1>Skin Eats</h1><div class="with">with Ipo</div><div class="ep" id="eptitle"></div></div>
+    <div class="ov" id="end"><img class="badge" alt="" src="data:image/webp;base64,LOGO"><h1>Skin Eats</h1><div class="ep">Feed it well.</div><div class="url">fruitypuppy.com</div><div class="fine">Grown at FlashTown and Rooster Island, Hawaiʻi</div></div>
+  </div>
+  <audio id="vo" preload="auto"></audio>
+  <div class="controls"><button id="play">Play</button><button class="alt" id="restart">Restart</button></div>
+</div>
+
+<script>
+const EP={n:1,title:"Part 1 · Still Alive",
+ /* [emotion, kicker, text] ; timed by word count until a voice file is added */
+ lines:[
+ ["explain","Still alive","Most fruit in skincare has traveled for weeks."],
+ ["ponder","Still alive","But picked fruit is still alive."],
+ ["worried","Still alive","It keeps breathing, burning through its own sugars and vitamins."],
+ ["sad","Still alive","Every hour on a truck, vitamin C oxidizes away."],
+ ["proud","Same day","Ours is grown at FlashTown and Rooster Island."],
+ ["excited","Same day","Picked, and processed the same day."],
+ ["sly","Same day","Then we freeze it, and the clock stops."],
+ ["explain","The science","Ice crystals grow inside every cell, and they're sharp."],
+ ["surprised","The science","They rupture the cell walls from the inside."],
+ ["sidepoint","The science","Scientists call it freeze-thaw cell rupture."],
+ ["delighted","The science","Vitamins, acids, antioxidants, enzymes. Everything leaks out."],
+ ["ponder","Bonus","Ice is picky. It freezes pure water and pushes the rest out."],
+ ["thumbsup","Bonus","So the first drip is the richest part of the fruit."],
+ ["palms","Never cooked","Never cooked. Just cold."],
+ ["pointcam","Next time","Next time: how fruit gets inside butter."],
+ ["laughing","Skin eats","Skin eats. Feed it well. I'm Ipo."]],
+ /* visuals by line index */
+ vis:{0:["lilwhole","Lilikoi · FlashTown"],4:["cooler","Picked today, on ice"],7:["cell","Freeze-thaw cell rupture"],11:["lilopen","The good stuff"],14:["jars","Fruity Puppy Original"]}
+};
+const $=id=>document.getElementById(id);
+const stage=$("stage"),say=$("say"),kick=$("kick"),vo=$("vo"),btn=$("play");
+const frames=[...document.querySelectorAll("#host img")],labs=[...document.querySelectorAll("#lab [data-c]")];
+$("eptitle").textContent=EP.title;$("epn").textContent=`Part ${EP.n} of 12`;
+/* build timeline */
+const OPEN=3.4;let t0=OPEN;const L=[];
+EP.lines.forEach(([e,k,txt],i)=>{const ws=txt.split(" ");const w=[];let t=t0;ws.forEach(x=>{w.push([x,t]);t+=0.12+x.length*0.055});L.push({at:t0,e,k,w,vis:EP.vis[i]});t0=t+0.45});
+const SPEND=t0,END=t0+4.5;
+/* ---- freeze-thaw cell animation ---- */
+const cv=$("cell"),cx=cv.getContext("2d");let cellStart=0;
+const parts=[...Array(70)].map((_,i)=>({a:Math.random()*6.28,r:Math.random()*.8,c:["#ff9f1c","#ff3f8e","#7bd389","#ffd23f"][i%4],s:4+Math.random()*5}));
+const labels=[["Vitamin C","#ff9f1c"],["Acids","#ff3f8e"],["Polyphenols","#7bd389"],["Enzymes","#ffd23f"]];
+function drawCell(t){
+  const W=cv.width,H=cv.height,ccx=W/2,ccy=H/2+10,R=190;
+  cx.fillStyle="#13283f";cx.fillRect(0,0,W,H);
+  const g=Math.min(1,t/3.2),burst=Math.max(0,Math.min(1,(t-3.2)/2.4));
+  // frost background
+  cx.fillStyle=`rgba(200,235,255,${.08+g*.12})`;cx.fillRect(0,0,W,H);
+  // cell wall
+  cx.save();cx.lineWidth=14;cx.strokeStyle="#7bd389";cx.fillStyle="rgba(123,211,137,.18)";
+  cx.beginPath();const segs=36;
+  for(let i=0;i<=segs;i++){const a=i/segs*6.283;const crack=burst>0&&(i%9<2)?burst*28:0;const rr=R+Math.sin(a*5+t)*6-crack;
+    const x=ccx+Math.cos(a)*rr*1.15,y=ccy+Math.sin(a)*rr*.95; i?cx.lineTo(x,y):cx.moveTo(x,y)}
+  cx.closePath();cx.fill();if(burst<1){cx.globalAlpha=1-burst*.6;cx.stroke()}cx.restore();
+  // ice crystals growing inward
+  for(let k=0;k<9;k++){const a=k/9*6.283+.3,len=g*R*.95;const bx=ccx+Math.cos(a)*R*1.12,by=ccy+Math.sin(a)*R*.92;
+    cx.save();cx.translate(bx,by);cx.rotate(a+Math.PI);cx.strokeStyle="rgba(235,250,255,.95)";cx.lineWidth=5;cx.beginPath();cx.moveTo(0,0);cx.lineTo(len*(1+burst*.4),0);
+    for(let b=1;b<4;b++){const p=len*b/4;cx.moveTo(p,0);cx.lineTo(p+18*g,-22*g);cx.moveTo(p,0);cx.lineTo(p+18*g,22*g)}cx.stroke();cx.restore()}
+  // contents
+  parts.forEach(p=>{const out=burst*(1.2+p.r*1.4);const rr=(p.r*.75+out)*R;const a=p.a+t*.15;
+    const x=ccx+Math.cos(a)*rr*1.1,y=ccy+Math.sin(a)*rr*.9+Math.sin(t*2+p.a)*4;cx.fillStyle=p.c;cx.beginPath();cx.arc(x,y,p.s,0,6.283);cx.fill()});
+  // labels
+  if(burst>.35){cx.font="900 30px Nunito, system-ui, sans-serif";cx.textAlign="center";
+    labels.forEach(([txt,c],i)=>{const a=-2.4+i*1.6;const x=ccx+Math.cos(a)*R*1.45,y=ccy+Math.sin(a)*R*1.15;cx.globalAlpha=Math.min(1,(burst-.35)*3);
+      cx.fillStyle="rgba(19,40,63,.85)";const w=cx.measureText(txt).width+28;cx.fillRect(x-w/2,y-26,w,40);cx.fillStyle=c;cx.fillText(txt,x,y+4);cx.globalAlpha=1})}
+  cx.font="900 26px Nunito, system-ui, sans-serif";cx.textAlign="left";cx.fillStyle="rgba(235,250,255,.9)";cx.fillText(burst<.1?"Freezing...":"Cell wall ruptured",24,44);
+}
+/* ---- player clock: voice track if present, else wall clock ---- */
+const voiced=!!vo.getAttribute("src");let t0w=0,paused=0,running=false,raf=0,li=-1,vis="";
+function now(){return voiced?vo.currentTime:(running?(performance.now()-t0w)/1000:paused)}
+function scene(id){stage.classList.toggle("live",!id);["open","end"].forEach(x=>$(x).classList.toggle("on",x===id))}
+function setLine(n){const b=L[n];li=n;frames.forEach(f=>f.classList.toggle("on",f.dataset.e===b.e));kick.textContent=b.k;
+  say.innerHTML="";b.w.forEach(([w])=>{const s=document.createElement("span");s.className="w";s.textContent=w+" ";say.appendChild(s)})}
+function setVis(c,tag){if(c===vis)return;vis=c;labs.forEach(el=>{const on=el.dataset.c===c;if(on&&el.tagName==="IMG")void el.offsetWidth;el.classList.toggle("on",on)});
+  if(c==="cell")cellStart=now();const tg=$("tag");tg.textContent=tag||"";tg.classList.toggle("on",!!tag)}
+function frame(){
+  const t=now();
+  if(t<OPEN){scene("open")}
+  else if(t<SPEND){scene(null);let n=0;for(let k=0;k<L.length;k++)if(t>=L[k].at)n=k;if(n!==li)setLine(n);
+    let v=null;for(let k=0;k<=n;k++)if(L[k].vis)v=L[k].vis;if(v)setVis(v[0],v[1]);
+    const ws=L[n].w,sp=say.children;let last=-1;for(let k=0;k<ws.length;k++){const on=t>=ws[k][1];sp[k].classList.toggle("lit",on);if(on)last=k}
+    for(let k=0;k<sp.length;k++)sp[k].classList.toggle("now",k===last);
+    if(vis==="cell")drawCell(t-cellStart)}
+  else{scene("end");if(t>=END){stop(true);return}}
+  raf=requestAnimationFrame(frame);
+}
+function play(){running=true;t0w=performance.now()-paused*1000;if(voiced)vo.play().catch(()=>{});btn.textContent="Pause";cancelAnimationFrame(raf);raf=requestAnimationFrame(frame)}
+function stop(done){paused=now();running=false;if(voiced)vo.pause();cancelAnimationFrame(raf);btn.textContent=done?"Play again":"Play";if(done)paused=0}
+btn.addEventListener("click",()=>running?stop():(btn.textContent==="Play again"&&(li=-1,vis=""),play()));
+$("restart").addEventListener("click",()=>{stop();paused=0;li=-1;vis="";if(voiced)vo.currentTime=0;play()});
+scene("open");
+</script>
