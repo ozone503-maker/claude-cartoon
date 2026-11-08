@@ -36,7 +36,7 @@ body{font-family:var(--ui);padding-left:max(16px,env(safe-area-inset-left,0px));
 .host img.on{opacity:1}
 .name{position:absolute;right:6%;bottom:8.5%;z-index:3;font-family:var(--display);font-weight:700;font-size:4.4cqw;background:var(--pink);color:#fff;padding:.4cqw 3cqw;border-radius:99px;transform:rotate(-3deg)}
 /* captions */
-.cap{position:absolute;left:5%;width:52%;top:calc(24cqw + 90cqw*.82 + 6cqw);bottom:12%;display:flex;flex-direction:column;justify-content:center;gap:1.6cqw;z-index:3}
+.cap{position:absolute;left:5%;width:47%;top:calc(24cqw + 90cqw*.82 + 6cqw);bottom:12%;display:flex;flex-direction:column;justify-content:center;gap:1.6cqw;z-index:3}
 .kick{font-weight:900;font-size:3.6cqw;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;min-height:1.2em}
 .say{font-family:var(--display);font-weight:700;font-size:6.4cqw;line-height:1.08;margin:0;color:var(--cream);text-wrap:balance;text-shadow:0 2px 0 rgba(0,0,0,.35)}
 .say .w{opacity:.35;transition:opacity .12s,color .12s}
@@ -97,7 +97,7 @@ const EP={n:1,title:"Part 1 · Still Alive",
  ["pointcam","Next time","Next time: how fruit gets inside butter."],
  ["laughing","Skin eats","Skin eats. Feed it well. I'm Ipo."]],
  /* visuals by line index */
- vis:{0:["lilwhole","Lilikoi · FlashTown"],4:["cooler","Picked today, on ice"],7:["cell","Freeze-thaw cell rupture"],11:["lilopen","The good stuff"],14:["jars","Fruity Puppy Original"]}
+ vis:{0:["lilikoi_hand","Lilikoi · FlashTown"],4:["lilikoi_bucket","Picked today"],6:["cooler","Straight onto ice"],7:["cell","Freeze-thaw cell rupture"],10:["sci_rupture","Cell contents released"],11:["lilikoi_pulp_ice","The first drip"],14:["jars","Fruity Puppy Original"]}
 };
 const $=id=>document.getElementById(id);
 const stage=$("stage"),say=$("say"),kick=$("kick"),vo=$("vo"),btn=$("play");
