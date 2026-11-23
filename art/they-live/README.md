@@ -39,3 +39,19 @@ Second set for the same four, same noir style, plain light grey, no text. Order 
 - `fullbody-alien-woman-09-16.webp`
 
 Known flags: on both man 09–16 sheets, 12 phone is cropped at the knees, 16 cuts the feet at the bottom edge, 15 is two thumbs up instead of one. 13 and 14 hide the legs behind the desk and podium — that's the pose. Woman 09–16 sheets are full body throughout except 14 behind the podium.
+
+- `fullbody-regular-woman-redo-3-6-8.webp` — redo of regular woman 1–8 poses 3 arms crossed, 6 checking watch, 8 looking over shoulder, full body head to toe. File has 4 panels: 1 arms crossed, 2 watch, 3 arms crossed again (duplicate), 4 over shoulder — use panels 1, 2, 4.
+
+## Jessie — new set, blue plaid shirt, no trench coat
+
+Second Jessie set, head and shoulders, plain light grey, no text, subtle expressions. Jessie: long grey hair in a man bun, full grey beard, bright blue eyes, blue plaid flannel shirt only — no trench coat, no jacket, no outerwear on any sheet. Order in every sheet is top row left to right, then bottom row left to right.
+
+Sheet 1 (1–8): 1 calm steady stare, 2 eyebrow raised skeptical, 3 knowing smirk, 4 jaw set cold anger, 5 eyes narrowed suspicious, 6 glancing sideways wary, 7 dry unimpressed, 8 small grim smile.
+- `jessie-sheet1-no-glasses-01-08.webp`
+- `jessie-sheet1-glasses-lowered-01-08.webp` — glasses lowered on nose, eyes over the top in every panel
+- `jessie-sheet1-glasses-worn-01-08.webp` — glasses fully covering eyes
+
+Sheet 2 (9–16): 9 head tilted sizing someone up, 10 lips pressed disgusted, 11 alert eyes wide but in control, 12 tired but sharp, 13 looking up at the sky wary, 14 quiet laugh shaking head, 15 serious nod, 16 leaning toward camera about to say something.
+- `jessie-sheet2-no-glasses-09-16.webp`
+- `jessie-sheet2-glasses-lowered-09-16.webp` — glasses lowered on nose, eyes over the top in every panel
+- `jessie-sheet2-glasses-worn-09-16.webp` — glasses fully covering eyes
