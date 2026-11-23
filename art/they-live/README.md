@@ -65,3 +65,12 @@ Same new Jessie set, with a thick bushy brown-grey mustache, prominent in every 
 - `jessie-sheet2-glasses-worn-mustache-09-16.webp`
 
 Known flags: `jessie-sheet1-no-glasses-mustache-01-08.webp` has a dark jacket over the plaid shirt. `jessie-sheet2-glasses-lowered-mustache-09-16.webp` has the glasses lowered on the top row, but worn over the eyes on the bottom row (14, 15, 16). Sheet 1 lowered and worn with mustache were not generated yet.
+
+## Jessie — cool customer set
+
+Back to the good earlier noir style: plain light grey, no text, no scenery, no city lights, no rain, muted, subtle expressions, mustache on in every panel, blue plaid shirt only, no trench coat. Expressions: 1 relaxed steady look, 2 faint smirk, 3 eyebrow barely raised, 4 slow sideways glance, 5 eyes slightly narrowed reading someone, 6 small tired exhale unimpressed, 7 chin slightly down looking up at camera, 8 hint of a knowing smile.
+- `jessie-cool-no-glasses-01-08.webp`
+- `jessie-cool-glasses-lowered-01-08.webp` — glasses lowered on nose, eyes over the top
+- `jessie-cool-glasses-worn-01-08.webp` — glasses fully covering eyes
+
+Known flag: in `jessie-cool-glasses-worn-01-08.webp`, the eyebrow-raised picture and the tired picture have no glasses. The other six are right. The rainy city-lights versions of this set were not pushed.
