@@ -28,3 +28,14 @@ Same cartoon pulp noir style as the Jessie sheets above, plain light grey backgr
 - `fullbody-alien-man-01-08.webp` — man, alien, blue skull face, star eyes, blue hands
 
 Known flag: `fullbody-regular-woman-01-08.webp` crops the feet on 3 panels — arms crossed, watch, over-shoulder. The other 3 full-body sheets are full body head to toe throughout. Regular faces are invented — both reference photos show the couple already in alien makeup, so there is no unmasked face to copy from.
+
+## Full body — poses 9–16
+
+Second set for the same four, same noir style, plain light grey, no text. Order in every sheet is top row left to right, then bottom row left to right: 9 pointing to the side, 10 talking to camera with open hand, 11 waving, 12 holding a smartphone looking at it, 13 sitting behind a news desk, 14 speaking at a podium, 15 smiling with thumbs up, 16 handing a paper to someone off panel. Alien sheets were made off the regular sheets so pose, size and framing match.
+
+- `fullbody-regular-man-09-16.webp`
+- `fullbody-alien-man-09-16.webp`
+- `fullbody-regular-woman-09-16.webp`
+- `fullbody-alien-woman-09-16.webp`
+
+Known flags: on both man 09–16 sheets, 12 phone is cropped at the knees, 16 cuts the feet at the bottom edge, 15 is two thumbs up instead of one. 13 and 14 hide the legs behind the desk and podium — that's the pose. Woman 09–16 sheets are full body throughout except 14 behind the podium.
