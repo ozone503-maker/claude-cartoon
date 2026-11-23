@@ -55,3 +55,13 @@ Sheet 2 (9–16): 9 head tilted sizing someone up, 10 lips pressed disgusted, 11
 - `jessie-sheet2-no-glasses-09-16.webp`
 - `jessie-sheet2-glasses-lowered-09-16.webp` — glasses lowered on nose, eyes over the top in every panel
 - `jessie-sheet2-glasses-worn-09-16.webp` — glasses fully covering eyes
+
+## Jessie — mustache versions
+
+Same new Jessie set, with a thick bushy brown-grey mustache, prominent in every panel, like the photo. Pushed as separate files so the earlier versions stay too.
+- `jessie-sheet1-no-glasses-mustache-01-08.webp`
+- `jessie-sheet2-no-glasses-mustache-09-16.webp`
+- `jessie-sheet2-glasses-lowered-mustache-09-16.webp`
+- `jessie-sheet2-glasses-worn-mustache-09-16.webp`
+
+Known flags: `jessie-sheet1-no-glasses-mustache-01-08.webp` has a dark jacket over the plaid shirt. `jessie-sheet2-glasses-lowered-mustache-09-16.webp` has the glasses lowered on the top row, but worn over the eyes on the bottom row (14, 15, 16). Sheet 1 lowered and worn with mustache were not generated yet.
