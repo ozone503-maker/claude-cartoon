@@ -17,3 +17,14 @@ Pulp-fiction detective noir cartoon sheets of Jessie, 48 poses in 3 sets of 16. 
 - `glasses-worn-01-08.webp`: background neon signs carry gibberish lettering. On surprised / scared, the eyes show through the lenses wide.
 - `glasses-worn-09-16.webp`: on excited / curious, the eyes show through the lenses. Curious (15) has a magnifying glass prop.
 - The v1 sheets (labelled, overacted expressions) are not in this branch — rejected, not included.
+
+## Full body — They Live couple, noir cartoon style
+
+Same cartoon pulp noir style as the Jessie sheets above, plain light grey background, no text, no scenery. 32 full-body poses: 16 as regular people, 16 as aliens, 8 woman / 8 man in each set. Order in every sheet is top row left to right, then bottom row left to right: 1 standing, 2 walking, 3 arms crossed, 4 hands in pockets, 5 holding papers / newspaper, 6 checking watch, 7 hands on hips, 8 looking over shoulder.
+
+- `fullbody-regular-woman-01-08.webp` — woman, regular person, grey sweater, dark pants, pearl necklace
+- `fullbody-regular-man-01-08.webp` — man, regular person, dark suit, pale tie
+- `fullbody-alien-woman-01-08.webp` — woman, alien, blue skull face, star eyes, blue hands
+- `fullbody-alien-man-01-08.webp` — man, alien, blue skull face, star eyes, blue hands
+
+Known flag: `fullbody-regular-woman-01-08.webp` crops the feet on 3 panels — arms crossed, watch, over-shoulder. The other 3 full-body sheets are full body head to toe throughout. Regular faces are invented — both reference photos show the couple already in alien makeup, so there is no unmasked face to copy from.
