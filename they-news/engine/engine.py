@@ -187,11 +187,12 @@ def brand_plate(im, age):
     x0, y0 = cx - pw // 2, cy - ph // 2
     d.rectangle((x0 + 12, y0 + 12, x0 + pw + 12, y0 + ph + 12), fill=(0, 0, 0))
     d.rectangle((x0, y0, x0 + pw, y0 + ph), fill=PAPER, outline=BINK, width=8)
-    t = "BECAUSE EVERYTHING IS A PSY-OP"; fs = int(80 * sc)
+    d.text((cx, y0 + ph * .17), "PUT ON THE GLASSES.", font=F(ARCH, int(44 * sc)), fill=BRED, anchor='mm')
+    t = "BECAUSE EVERYTHING IS A PSY-OP"; fs = int(74 * sc)
     while d.textlength(t, font=F(ANTON, fs)) > pw - 60: fs -= 2
-    d.text((cx, y0 + ph * .30), t, font=F(ANTON, fs), fill=BINK, anchor='mm')
-    d.rectangle((x0 + 30, y0 + ph * .56, x0 + pw - 30, y0 + ph - 26), fill=BRED)
-    d.text((cx, y0 + ph * .765), "BROBOTS.SPACE", font=F(ARCH, int(78 * sc)), fill=PAPER, anchor='mm')
+    d.text((cx, y0 + ph * .42), t, font=F(ANTON, fs), fill=BINK, anchor='mm')
+    d.rectangle((x0 + 30, y0 + ph * .62, x0 + pw - 30, y0 + ph - 22), fill=BRED)
+    d.text((cx, y0 + ph * .80), "BROBOTS.SPACE", font=F(ARCH, int(70 * sc)), fill=PAPER, anchor='mm')
 
 def anaglyph(im, amt):
     r, g, b = im.split(); o = int(amt)
