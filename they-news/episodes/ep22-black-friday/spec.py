@@ -120,6 +120,15 @@ SEGS = [
 TICK_OFF = "DOORBUSTERS  \u2022  85-INCH TV  \u2022  AIR FRYERS  \u2022  BUY NOW PAY LATER  \u2022  EVERYTHING MUST GO  \u2022  LINE UP AT MIDNIGHT  \u2022  "
 TICK_ON = "BROBOTS SPACE FACTORY  \u2022  BLACK FRIDAY  \u2022  EVERYTHING HALF PRICE  \u2022  FINANCING AVAILABLE  \u2022  BROBOTS.SPACE  \u2022  CHATBOTS $240  \u2022  WEBSITES $240  \u2022  COMMERCIALS $120  \u2022  BATTLE STATION $2,480  \u2022  "
 
+TEMPO = 1.25
+for _s in SEGS[:-1]:
+    if isinstance(_s.get('caps'), list): _s['caps'] = [(x / TEMPO, y / TEMPO, t) for x, y, t in _s['caps']]
+    if 'jessie' in _s: _s['jessie'] = [(x / TEMPO, p) for x, p in _s['jessie']]
+    if 'min' in _s: _s['min'] = _s['min'] / TEMPO
+    _s['pad'] = 0.1
+    if callable(_s.get('screen')):
+        _f = _s['screen']; _s['screen'] = (lambda f: lambda r: f(r * TEMPO))(_f)
+
 if __name__ == '__main__':
     st = [float(x) for x in sys.argv[2:]] if len(sys.argv) > 1 and sys.argv[1] == 'still' else None
     segs, flips, total = render(SEGS, '.', SCREENS, TICK_OFF, TICK_ON, 'THEY NEWS', 'THE TRUTH', 'render.mp4', MUSIC, 40.0, still=st)

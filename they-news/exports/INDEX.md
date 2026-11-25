@@ -27,7 +27,7 @@ Logo / profile pic: `../brand/tue night put on the glasses logo.png` (1080 squar
 | 19 | TN19 under the ice.mp4 | 1:12 | Antarctic Treaty "expired" | WHO HOLDS THE LEASE? |
 | 20 | TN20 dark night.mp4 | 1:18 | Dark night of the soul, 4 stages | STARVE THEM |
 | 21 | TN21 cat shield.mp4 | 1:11 | Cats as living frequencies of love | GET A CAT |
-| 22 | TN22 black friday.mp4 | 1:01 | BroBots Black Friday ad | INVEST IN YOURSELF |
+| 22 | TN22 black friday.mp4 | 0:51 | BroBots Black Friday ad | INVEST IN YOURSELF |
 
 ## Building more
 Engine and every episode script live in `../engine` and `../episodes`. Music bed is `../music/bed.wav`. The character cutouts (`../cuts`) are regenerated from the art in the repo with `../engine/cut.py`.
