@@ -61,10 +61,11 @@ def o3_on():
 
 def f4_off():
     im, d = card((235, 238, 245)); header(d, "SENATE HEARING: AI SAFETY")
-    d.rectangle((60, 140, 330, 320), fill=WHITE, outline=INK, width=4)
-    d.text((195, 190), "AI LICENSE", font=F(ANTON, 44), fill=NAVY, anchor='mm'); d.text((195, 245), "ACT", font=F(ANTON, 44), fill=NAVY, anchor='mm')
-    d.text((195, 300), "for your safety", font=F(ARCH, 22), fill=INK, anchor='mm')
-    fit_text(d, (350, 120, X1 - 10, 440), "BIG TECH WELCOMES REGULATION", ANTON, 70, NAVY); return im
+    fit_text(d, (30, 95, X1 + 40, 175), "BIG TECH WELCOMES REGULATION", ANTON, 70, NAVY)
+    d.rectangle((60, 200, 330, 400), fill=WHITE, outline=INK, width=4)
+    d.text((195, 255), "AI LICENSE", font=F(ANTON, 44), fill=NAVY, anchor='mm'); d.text((195, 310), "ACT", font=F(ANTON, 44), fill=NAVY, anchor='mm')
+    d.text((195, 370), "for your safety", font=F(ARCH, 22), fill=INK, anchor='mm')
+    return im
 def o4_on():
     im, d = card(GREY)
     d.rectangle((90, 200, 280, 320), fill=WHITE, outline=INK, width=5); d.polygon([(60, 320), (310, 320), (330, 350), (40, 350)], fill=INK)
