@@ -26,6 +26,7 @@ Logo / profile pic: `../brand/tue night put on the glasses logo.png` (1080 squar
 | 18 | TN18 crust shift.mp4 | 1:11 | Earth crust displacement, Einstein, CIA | BUILD YOUR OWN ARK |
 | 19 | TN19 under the ice.mp4 | 1:12 | Antarctic Treaty "expired" | WHO HOLDS THE LEASE? |
 | 20 | TN20 dark night.mp4 | 1:18 | Dark night of the soul, 4 stages | STARVE THEM |
+| 21 | TN21 cat shield.mp4 | 1:11 | Cats as living frequencies of love | GET A CAT |
 
 ## Building more
 Engine and every episode script live in `../engine` and `../episodes`. Music bed is `../music/bed.wav`. The character cutouts (`../cuts`) are regenerated from the art in the repo with `../engine/cut.py`.
