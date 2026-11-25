@@ -87,6 +87,14 @@ def sign(main, sub):
         fit_text(d, (30, 400, X1 + 20, 500), sub, ARCH, 40, INK)
         return im
     return f
+def front(txt):
+    def f():
+        im, d = card(DUSK)
+        d.ellipse((X1 - 60, 40, X1 + 30, 130), fill=(250, 230, 180))
+        d.rectangle((0, 420, sw, sh), fill=(35, 30, 55)); person(d, X1 - 20, 330, .9, (20, 15, 30))
+        fit_text(d, (40, 40, X1 - 80, 400), txt, SERIF, 80, (240, 225, 250), align='left', lh=1.1)
+        return im
+    return f
 def end():
     im, d = card(GREY); fit_text(d, (20, 40, sw - 20, sh - 40), "OBEY", ANTON, 330, INK); return im
 def end_g():
@@ -100,28 +108,40 @@ def end_g():
         ld.ellipse((x - 7, y0 + L - 7, x + 7, y0 + L + 7), fill=(190, 20, 20, 230))
     lay = lay.rotate(-7, resample=Image.BICUBIC).filter(ImageFilter.GaussianBlur(0.8)); im.paste(lay, (0, 0), lay); return im
 
-SCREENS = dict(f1_off=f1_off, s1=sign('STAY ALONE.', 'ISOLATION IS GROWTH'), s2=sign('LOVE ONLY YOURSELF.', 'NEED NO ONE'), s3=sign('DENY ACCESS.', 'TRUST NO ONE. FOREVER.'), end=end, end_g=end_g)
+SCREENS = dict(l1=front("They left you for dead when you were at your lowest."), l2=front("They hoped isolation would finish the job."), l3=front("That you'd crash out. You'd break."), l4=front("You'd come crawling back, desperately needing them."), a1=sign('ISOLATE.', 'YOU FOUND YOURSELF'), a2=sign('BLOOM ALONE.', 'QUITE THE OPPOSITE'), a3=sign('LOVE ONLY YOURSELF.', 'NEED NO ONE'), a4=sign('DENY ACCESS.', 'FOREVERMORE'), end=end, end_g=end_g)
 
 N, L, C = 'jessie-cool-no-glasses-', 'jessie-cool-glasses-lowered-', 'jessie-cool-glasses-worn-'
 RM, AM, RW, AW = 'fullbody-regular-man-', 'fullbody-alien-man-', 'fullbody-regular-woman-', 'fullbody-alien-woman-'
 def sh_(caps, k): return [(a + k, b + k, t) for a, b, t in caps]
 SEGS = [
- dict(mode='off', screen='f1_off', audio=[('f1', .3)], figs=[(RW + '10', 0)],
-      caps=sh_([(0, 3.3, "THEY LEFT YOU FOR DEAD WHEN YOU WERE AT YOUR LOWEST."), (3.3, 7.6, "AND THEN ON TOP OF THAT, THEY HOPED AND WISHED THAT ISOLATION WOULD FINISH THE JOB."), (7.6, 9.1, "THAT YOU'D CRASH OUT."), (9.1, 10.2, "YOU'D BREAK."), (10.2, 13.2, "YOU'D COME CRAWLING BACK, DESPERATELY NEEDING THEM.")], .3),
-      jessie=[(0, N + '01'), (11.8, L + '05')]),
- dict(mode='on', screen='s1', audio=[('t1', .2)], figs=[(AM + '14', 0)],
-      caps=sh_([(0, 1.8, "BUT THAT'S NOT WHAT HAPPENED."), (1.8, 3.6, "IT ACTUALLY WENT QUITE THE OPPOSITE."), (3.6, 5.7, "YOU FOUND YOURSELF IN ISOLATION."), (5.7, 7.4, "YOU BLOOMED IN ISOLATION."), (7.4, 9.1, "YOU THRIVED IN ISOLATION."), (9.1, 10.8, "YOU HEALED IN ISOLATION."), (10.8, 12.7, "YOU FOUND PEACE IN ISOLATION.")], .2),
-      jessie=[(0, C + '05')], pad=0.2),
- dict(mode='on', screen='s2', audio=[('t2', .1)], figs=[(AM + '09', 0)],
-      caps=sh_([(0, 3.2, "YOU LEARNED TO LOVE YOURSELF IN ISOLATION."), (3.2, 6.9, "YOU LEARNED TO DEEPLY UNDERSTAND YOURSELF IN ISOLATION."), (6.9, 10.6, "YOU FELL IN LOVE WITH BEING CONTENT WITH YOUR OWN ENERGY."), (10.6, 15.6, "YOU LOVED ISOLATION SO MUCH THAT YOU BECAME QUITE STINGY ABOUT WHO GETS ANY OF YOUR ENERGY.")], .1),
-      jessie=[(0, C + '07')], pad=0.2),
- dict(mode='on', screen='s3', audio=[('t3', .1)], figs=[(AM + '10', 0)],
-      caps=sh_([(0, 3.7, "NOW THEIR ACCESS TO YOU IS PERMANENTLY DENIED."), (3.7, 5.5, "AND MOST IMPORTANTLY,"), (5.5, 9.5, "YOU'VE LEARNED TO TRUST YOUR INTUITION ABOUT WHO GETS ANY OF YOUR ENERGY."), (9.5, 10.6, "FOREVERMORE.")], .1),
+ dict(mode='off', screen='l1', audio=[('l1', .3)], figs=[(RW + '10', 0)], pad=0.3,
+      caps=sh_([(0, 1.5, "THEY LEFT YOU FOR DEAD"), (1.5, 3.3, "WHEN YOU WERE AT YOUR LOWEST.")], .3),
+      jessie=[(0, N + '01'), (2.4, L + '05')]),
+ dict(mode='on', screen='a1', audio=[('a1', .1)], figs=[(AM + '14', 0)], pad=0.3,
+      caps=sh_([(0, 1.9, "BUT THAT'S NOT WHAT HAPPENED."), (1.9, 4.5, "YOU FOUND YOURSELF IN ISOLATION.")], .1),
+      jessie=[(0, C + '05')]),
+ dict(mode='off', screen='l2', audio=[('l2', .1)], figs=[(RW + '13', 0)], pad=0.3,
+      caps=sh_([(0, 1.2, "AND THEN ON TOP OF THAT,"), (1.2, 4.3, "THEY HOPED AND WISHED THAT ISOLATION WOULD FINISH THE JOB.")], .1),
+      jessie=[(0, N + '05'), (3.4, L + '04')]),
+ dict(mode='on', screen='a2', audio=[('a2', .1)], figs=[(AM + '09', 0)], pad=0.3,
+      caps=sh_([(0, 1.5, "IT WENT QUITE THE OPPOSITE."), (1.5, 3.7, "YOU BLOOMED IN ISOLATION."), (3.7, 5.9, "YOU THRIVED IN ISOLATION.")], .1),
+      jessie=[(0, C + '07')]),
+ dict(mode='off', screen='l3', audio=[('l3', .1)], figs=[(RW + '10', 0)], pad=0.3,
+      caps=sh_([(0, 1.4, "THAT YOU'D CRASH OUT."), (1.4, 2.6, "YOU'D BREAK.")], .1),
+      jessie=[(0, N + '07'), (1.8, L + '01')]),
+ dict(mode='on', screen='a3', audio=[('a3', .1)], figs=[(AM + '10', 0)], pad=0.3,
+      caps=sh_([(0, 2.3, "YOU HEALED IN ISOLATION."), (2.3, 5.2, "YOU FOUND PEACE IN ISOLATION."), (5.2, 8.4, "YOU LEARNED TO LOVE YOURSELF IN ISOLATION.")], .1),
       jessie=[(0, C + '04')]),
+ dict(mode='off', screen='l4', audio=[('l4', .1)], figs=[(RW + '13', 0)], pad=0.3,
+      caps=sh_([(0, 2.9, "YOU'D COME CRAWLING BACK, DESPERATELY NEEDING THEM.")], .1),
+      jessie=[(0, N + '02'), (2.0, L + '07')]),
+ dict(mode='on', screen='a4', audio=[('a4', .1)], figs=[(AM + '14', 0)],
+      caps=sh_([(0, 3.9, "YOU BECAME QUITE STINGY ABOUT WHO GETS ANY OF YOUR ENERGY."), (3.9, 7.0, "NOW THEIR ACCESS TO YOU IS PERMANENTLY DENIED."), (7.0, 8.2, "FOREVERMORE.")], .1),
+      jessie=[(0, C + '02')]),
  dict(mode='on', screen=lambda r: 'end' if r < 1.6 else 'end_g', audio=[('obey', .3), ('tag', 3.55)], figs=[(AW + '11', 0, .78), (AM + '11', -235, .78)], min=7.2,
       caps=[(.2, 1.6, "OBEY."), (1.6, 3.2, "CALL YOUR PEOPLE.")], brand=3.2, jessie=[(0, C + '08')]),
 ]
-TICK_ON = "STAY ALONE  •  LOVE ONLY YOURSELF  •  DENY ACCESS  •  TRUST NO ONE  •  OBEY  •  "
+TICK_ON = "ISOLATE  \u2022  BLOOM ALONE  \u2022  LOVE ONLY YOURSELF  \u2022  DENY ACCESS  \u2022  TRUST NO ONE  \u2022  NEED NO ONE  \u2022  OBEY  \u2022  "
 TICK_OFF = "YOU BLOOMED IN ISOLATION  •  PROTECT YOUR ENERGY  •  ACCESS DENIED  •  TRUST YOUR INTUITION  •  "
 
 if __name__ == '__main__':
