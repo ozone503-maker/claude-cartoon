@@ -101,7 +101,7 @@ def bug(d, txt, on, live=True):
 
 def mkstrip(txt, on):
     f = F(ARCH, 40)
-    st = Image.new('RGBA', (6000, 60), (0, 0, 0, 0))
+    st = Image.new('RGBA', (int(ImageDraw.Draw(Image.new('RGB', (1, 1))).textlength(txt, font=f)) + 200, 60), (0, 0, 0, 0))
     ImageDraw.Draw(st).text((0, 30), txt.rstrip(), font=f, fill=(0, 0, 0) if on else (255, 255, 255), anchor='lm')
     xs = np.where(np.asarray(st)[..., 3].max(0) > 0)[0]
     return st.crop((0, 0, int(xs.max()) + 60, 60))
