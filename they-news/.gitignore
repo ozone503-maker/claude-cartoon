@@ -1,7 +1,7 @@
-cuts/
 **/mix.wav
 **/still_*.jpg
 **/*.mp4
 **/__pycache__/
 episodes/*/obey.wav
 episodes/*/tag.wav
+!exports/*.mp4
