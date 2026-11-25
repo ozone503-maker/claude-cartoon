@@ -80,6 +80,13 @@ def o4_on():
     fit_text(d, (370, 40, X1 + 40, 330), "DIVIDED. ISOLATED. CONQUERED.", ANTON, 90, INK)
     fit_text(d, (30, 390, X1, 510), "TRUST NO ONE. EXCEPT THIS ACCOUNT.", ANTON, 80, INK); return im
 
+def sign(main, sub):
+    def f():
+        im, d = card(GREY)
+        fit_text(d, (30, 40, X1 + 40, 380), main, ANTON, 200, INK, lh=0.95)
+        fit_text(d, (30, 400, X1 + 20, 500), sub, ARCH, 40, INK)
+        return im
+    return f
 def end():
     im, d = card(GREY); fit_text(d, (20, 40, sw - 20, sh - 40), "OBEY", ANTON, 330, INK); return im
 def end_g():
@@ -93,7 +100,7 @@ def end_g():
         ld.ellipse((x - 7, y0 + L - 7, x + 7, y0 + L + 7), fill=(190, 20, 20, 230))
     lay = lay.rotate(-7, resample=Image.BICUBIC).filter(ImageFilter.GaussianBlur(0.8)); im.paste(lay, (0, 0), lay); return im
 
-SCREENS = dict(f1_off=f1_off, o1_on=o1_on, f2_off=f2_off, o2_on=o2_on, f3_off=f3_off, o3_on=o3_on, f4_off=f4_off, o4_on=o4_on, end=end, end_g=end_g)
+SCREENS = dict(f1_off=f1_off, s1=sign('STAY ALONE.', 'ISOLATION IS GROWTH'), s2=sign('LOVE ONLY YOURSELF.', 'NEED NO ONE'), s3=sign('DENY ACCESS.', 'TRUST NO ONE. FOREVER.'), end=end, end_g=end_g)
 
 N, L, C = 'jessie-cool-no-glasses-', 'jessie-cool-glasses-lowered-', 'jessie-cool-glasses-worn-'
 RM, AM, RW, AW = 'fullbody-regular-man-', 'fullbody-alien-man-', 'fullbody-regular-woman-', 'fullbody-alien-woman-'
@@ -102,32 +109,20 @@ SEGS = [
  dict(mode='off', screen='f1_off', audio=[('f1', .3)], figs=[(RW + '10', 0)],
       caps=sh_([(0, 3.3, "THEY LEFT YOU FOR DEAD WHEN YOU WERE AT YOUR LOWEST."), (3.3, 7.6, "AND THEN ON TOP OF THAT, THEY HOPED AND WISHED THAT ISOLATION WOULD FINISH THE JOB."), (7.6, 9.1, "THAT YOU'D CRASH OUT."), (9.1, 10.2, "YOU'D BREAK."), (10.2, 13.2, "YOU'D COME CRAWLING BACK, DESPERATELY NEEDING THEM.")], .3),
       jessie=[(0, N + '01'), (11.8, L + '05')]),
- dict(mode='on', screen='o1_on', audio=[('o1', .1)], figs=[(AW + '10', 0)], min=3.4,
-      caps=sh_([(0, 1.2, "EVERYONE LEFT YOU."), (1.2, 3.0, "CUT THEM OFF FIRST.")], .1),
-      jessie=[(0, C + '05')]),
- dict(mode='off', screen='f2_off', audio=[('f2', .1)], figs=[(RW + '13', 0)],
-      caps=sh_([(0, 1.8, "BUT THAT'S NOT WHAT HAPPENED."), (1.8, 4.5, "IT ACTUALLY WENT QUITE THE OPPOSITE."), (4.5, 7.1, "YOU FOUND YOURSELF IN ISOLATION."), (7.1, 9.4, "YOU BLOOMED IN ISOLATION."), (9.4, 11.7, "YOU THRIVED IN ISOLATION."), (11.7, 14.1, "YOU HEALED IN ISOLATION."), (14.1, 16.3, "YOU FOUND PEACE IN ISOLATION.")], .1),
-      jessie=[(0, N + '05'), (14.8, L + '04')]),
- dict(mode='on', screen='o2_on', audio=[('o2', .1)], figs=[(AW + '13', 0)],
-      caps=sh_([(0, 2.3, "ISOLATED PEOPLE SCROLL LONGER."), (2.3, 3.6, "BLOOM ALONE.")], .1),
-      jessie=[(0, C + '07')]),
- dict(mode='off', screen='f3_off', audio=[('f3', .1)], figs=[(RW + '10', 0)],
-      caps=sh_([(0, 2.7, "YOU LEARNED TO LOVE YOURSELF IN ISOLATION."), (2.7, 6.1, "YOU LEARNED TO DEEPLY UNDERSTAND YOURSELF IN ISOLATION."), (6.1, 9.5, "YOU FELL IN LOVE WITH BEING CONTENT WITH YOUR OWN ENERGY."), (9.5, 15.8, "YOU LOVED ISOLATION SO MUCH THAT YOU BECAME QUITE STINGY ABOUT WHO GETS ANY OF YOUR ENERGY.")], .1),
-      jessie=[(0, N + '07'), (14.4, L + '01')]),
- dict(mode='on', screen='o3_on', audio=[('o3', .1)], figs=[(AW + '10', 0)], min=3.6,
-      caps=sh_([(0, 1.0, "NO FRIENDS."), (1.0, 2.4, "NO FAMILY."), (2.4, 3.5, "JUST THE FEED.")], .1),
+ dict(mode='on', screen='s1', audio=[('t1', .2)], figs=[(AM + '14', 0)],
+      caps=sh_([(0, 1.8, "BUT THAT'S NOT WHAT HAPPENED."), (1.8, 3.6, "IT ACTUALLY WENT QUITE THE OPPOSITE."), (3.6, 5.7, "YOU FOUND YOURSELF IN ISOLATION."), (5.7, 7.4, "YOU BLOOMED IN ISOLATION."), (7.4, 9.1, "YOU THRIVED IN ISOLATION."), (9.1, 10.8, "YOU HEALED IN ISOLATION."), (10.8, 12.7, "YOU FOUND PEACE IN ISOLATION.")], .2),
+      jessie=[(0, C + '05')], pad=0.2),
+ dict(mode='on', screen='s2', audio=[('t2', .1)], figs=[(AM + '09', 0)],
+      caps=sh_([(0, 3.2, "YOU LEARNED TO LOVE YOURSELF IN ISOLATION."), (3.2, 6.9, "YOU LEARNED TO DEEPLY UNDERSTAND YOURSELF IN ISOLATION."), (6.9, 10.6, "YOU FELL IN LOVE WITH BEING CONTENT WITH YOUR OWN ENERGY."), (10.6, 15.6, "YOU LOVED ISOLATION SO MUCH THAT YOU BECAME QUITE STINGY ABOUT WHO GETS ANY OF YOUR ENERGY.")], .1),
+      jessie=[(0, C + '07')], pad=0.2),
+ dict(mode='on', screen='s3', audio=[('t3', .1)], figs=[(AM + '10', 0)],
+      caps=sh_([(0, 3.7, "NOW THEIR ACCESS TO YOU IS PERMANENTLY DENIED."), (3.7, 5.5, "AND MOST IMPORTANTLY,"), (5.5, 9.5, "YOU'VE LEARNED TO TRUST YOUR INTUITION ABOUT WHO GETS ANY OF YOUR ENERGY."), (9.5, 10.6, "FOREVERMORE.")], .1),
       jessie=[(0, C + '04')]),
- dict(mode='off', screen='f4_off', audio=[('f4', .1)], figs=[(RW + '13', 0)],
-      caps=sh_([(0, 3.8, "NOW THEIR ACCESS TO YOU IS PERMANENTLY DENIED."), (3.8, 5.4, "AND MOST IMPORTANTLY,"), (5.4, 7.5, "YOU'VE LEARNED TO TRUST YOUR INTUITION ABOUT WHO GETS ANY OF YOUR ENERGY."), (7.5, 9.4, "FOREVERMORE.")], .1),
-      jessie=[(0, N + '02'), (8.0, L + '07')]),
- dict(mode='on', screen='o4_on', audio=[('o4', .1)], figs=[(AW + '13', 0)],
-      caps=sh_([(0, 0.9, "DIVIDED."), (0.9, 2.1, "ISOLATED."), (2.1, 3.1, "CONQUERED."), (3.1, 4.8, "TRUST NO ONE."), (4.8, 6.4, "EXCEPT THIS ACCOUNT.")], .1),
-      jessie=[(0, C + '02')]),
  dict(mode='on', screen=lambda r: 'end' if r < 1.6 else 'end_g', audio=[('obey', .3), ('tag', 3.55)], figs=[(AW + '11', 0, .78), (AM + '11', -235, .78)], min=7.2,
       caps=[(.2, 1.6, "OBEY."), (1.6, 3.2, "CALL YOUR PEOPLE.")], brand=3.2, jessie=[(0, C + '08')]),
 ]
+TICK_ON = "STAY ALONE  •  LOVE ONLY YOURSELF  •  DENY ACCESS  •  TRUST NO ONE  •  OBEY  •  "
 TICK_OFF = "YOU BLOOMED IN ISOLATION  •  PROTECT YOUR ENERGY  •  ACCESS DENIED  •  TRUST YOUR INTUITION  •  "
-TICK_ON = "CUT THEM OFF  •  SCROLL LONGER  •  JUST THE FEED  •  DIVIDED  •  CONQUERED  •  OBEY  •  "
 
 if __name__ == '__main__':
     st = [float(x) for x in sys.argv[2:]] if len(sys.argv) > 1 and sys.argv[1] == 'still' else None
